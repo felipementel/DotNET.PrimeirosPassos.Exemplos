@@ -10,6 +10,21 @@ public class Program
         Console.WriteLine("Hello, World!");
 
         Built_in_Types();
+        
+        //Estrutura de dados
+        EstruturaDeDados_Pilha();
+        EstruturaDeDados_Fila();
+
+        //Estrutura de Repetição
+        EstruturaRepeticao_For();
+        EstruturaRepeticao_Foreach();
+        EstruturaRepeticao_While();
+        EstruturaRepeticao_DoWhile();
+
+        //Estrutura de Condição
+        EstruturaCondicao_If();
+        EstruturaCondicao_IfElse();
+        EstruturaCondicao_Switch();
     }
 
 
@@ -49,8 +64,18 @@ public class Program
     public static void EstruturaDeDados_Pilha()
     {
         // https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.stack-1?view=net-6.0
-        
+
         Stack<Pessoa> pilha = new Stack<Pessoa>();
+
+        pilha.Push(new Pessoa { Id = 1, Name = "Camila", Active = true });
+        pilha.Push(new Pessoa { Id = 2, Name = "Paola", Active = true });
+        pilha.Push(new Pessoa { Id = 3, Name = "Rafael", Active = true });
+
+        foreach (var item in pilha)
+        {
+            var itemPessoa = pilha.Pop();
+            Console.WriteLine(itemPessoa.Name);
+        }
     }
 
     /// <summary>
@@ -60,6 +85,16 @@ public class Program
     {
         // https://docs.microsoft.com/en-us/dotnet/api/system.collections.queue?view=net-6.0
         Queue<Pessoa> fila = new Queue<Pessoa>();
+
+        fila.Enqueue(new Pessoa { Id = 1, Name = "Camila", Active = true });
+        fila.Enqueue(new Pessoa { Id = 2, Name = "Paola", Active = true });
+        fila.Enqueue(new Pessoa { Id = 3, Name = "Rafael", Active = true });
+
+        foreach (var item in fila)
+        {
+            var itemPessoa = fila.Dequeue();
+            Console.WriteLine(itemPessoa.Name);
+        }
     }
 
     public static void EstruturaRepeticao_For()
@@ -136,13 +171,38 @@ public class Program
 
     public static void EstruturaCondicao_Switch()
     {
+        int numero = GerarNumeroRandomico(1, 30);
 
+        switch (numero)
+        {
+            case 1:
+                Console.WriteLine("Número é 1");
+                break;
+
+            case 2:
+                Console.WriteLine("Número é 2");
+                break;
+
+            case > 2:
+            case <= 30:
+                Console.WriteLine("Número esta entre 2 e 30");
+                break;
+
+            default:
+                Console.WriteLine("Número esta fora do range esperado");
+                break;
+        }
     }
 
     //Método
     public static int SomarUm(int Valor)
     {
         return Valor + 1;
+    }
+
+    public static int GerarNumeroRandomico(int min, int max)
+    {
+        return new Random().Next(min, max);
     }
 
     public static List<Pessoa> ObterLista()
