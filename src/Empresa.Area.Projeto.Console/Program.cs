@@ -7,80 +7,81 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        System.Console.WriteLine("Hello, World!");
+        Console.WriteLine("Hello, World!");
 
-        //Built-in Types (Tipos Pimitivos)
+        Built_in_Types();
+    }
+
+
+    /// <summary>
+    /// //Built-in Types (Tipos Pimitivos)
+    /// </summary>
+    public static void Built_in_Types()
+    {
+        // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types
 
         short ValorShot = 0;
         int ValorInteiro = 0;
         long ValorLong = 0;
 
-        Int16 ValorInt16 = 0;
-        Int32 ValorInt32 = 0;
-        Int64 Valor1 = 0;
+        string Nome = "";
+        string Nome2 = string.Empty;
 
-        Boolean flag = false;
+        DateTime dataAtual = DateTime.Now;
+        DateTime dataAtual2 = new DateTime(
+            DateTime.Now.Year,
+            DateTime.Now.Month,
+            DateTime.Now.Day);
 
-        int valorRetornado = SomarUm(4);
+        Boolean VerdadeiroFalso1 = false;
+        bool VerdadeiroFalso2 = true;
 
-        // Estrutura de condição
+        Decimal valorMonetario = 12.90M;
+        decimal valorMonetario2 = 12.90M;
 
-        if (valorRetornado > 5)
-        {
-            Console.WriteLine("Valor retornado maior que 5");
-        }
-        else if (valorRetornado < 5)
-        {
-            Console.WriteLine("Valor retornado menor que 5");
-        }
-        else
-        {
-            //Só vai entrar se a variável for igual a 5
-        }
+        char letra = 'A';
+        string palavra = "Felipe";
+    }
 
-        // Estrutura de repetição
-
-        //for, foreach, do while, while do
-
-        Queue<Pessoa> fila = new Queue<Pessoa>();
-
+    /// <summary>
+    /// LIFO
+    /// </summary>
+    public static void EstruturaDeDados_Pilha()
+    {
+        // https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.stack-1?view=net-6.0
+        
         Stack<Pessoa> pilha = new Stack<Pessoa>();
+    }
 
-        IEnumerable<Pessoa> lista = new List<Pessoa>(6);
-        Pessoa[] pessoa55 = new Pessoa[5];
-        pessoa55[0] = new Pessoa { Id = 1, Name = "Camila", Active = true };
-
-
-        List<Pessoa> Pessoas = new List<Pessoa>();
-        Pessoas.Add(new Pessoa { Id = 1, Name = "Camila", Active = true });
-        Pessoas.Add(new Pessoa { Id = 2, Name = "Paola", Active = true });
-        Pessoas.Add(new Pessoa { Id = 3, Name = "Rafael", Active = true });
-
-        foreach (var item in Pessoas)
-        {
-            Console.WriteLine("Nome:" + item.Name);
-            Console.WriteLine($"Statu: {item.Active}");
-        }
-
-        
-
-        
-
-        
-
+    /// <summary>
+    /// FIFO
+    /// </summary>
+    public static void EstruturaDeDados_Fila()
+    {
+        // https://docs.microsoft.com/en-us/dotnet/api/system.collections.queue?view=net-6.0
+        Queue<Pessoa> fila = new Queue<Pessoa>();
     }
 
     public static void EstruturaRepeticao_For()
     {
-        for (int i = 0; i < length; i++)
-        {
+        var items = ObterArray();
+        //var items = ObterLista();
 
+        for (int i = 0; i < items.Length; i++)
+        {
+            Console.WriteLine(items[0].Name);
         }
     }
 
     public static void EstruturaRepeticao_Foreach()
     {
+        var items = ObterArray();
+        //var items = ObterLista();
 
+        foreach (var item in items)
+        {
+            Console.WriteLine(item.Name);
+        }
     }
 
     public static void EstruturaRepeticao_While()
@@ -101,7 +102,22 @@ public class Program
 
     public static void EstruturaCondicao_If()
     {
+        int valorRetornado = SomarUm(4);
 
+        // Estrutura de condição
+
+        if (valorRetornado > 5)
+        {
+            Console.WriteLine("Valor retornado maior que 5");
+        }
+        else if (valorRetornado < 5)
+        {
+            Console.WriteLine("Valor retornado menor que 5");
+        }
+        else
+        {
+            //Só vai entrar se a variável for igual a 5
+        }
     }
 
     public static void EstruturaCondicao_IfElse()
@@ -114,12 +130,33 @@ public class Program
 
     }
 
-
+    //Método
     public static int SomarUm(int Valor)
     {
         return Valor + 1;
     }
 
+    public static List<Pessoa> ObterLista()
+    {
+        List<Pessoa> Pessoas = new List<Pessoa>();
+        Pessoas.Add(new Pessoa { Id = 1, Name = "Camila", Active = true });
+        Pessoas.Add(new Pessoa { Id = 2, Name = "Paola", Active = true });
+        Pessoas.Add(new Pessoa { Id = 3, Name = "Rafael", Active = true });
+
+        return Pessoas;
+    }
+
+    public static Pessoa[] ObterArray()
+    {
+        Pessoa[] Pessoas = new Pessoa[3];
+        Pessoas[0] = new Pessoa { Id = 1, Name = "Camila", Active = true };
+        Pessoas[1] = new Pessoa { Id = 2, Name = "Paola", Active = true };
+        Pessoas[3] = new Pessoa { Id = 3, Name = "Rafael", Active = true };
+
+        return Pessoas;
+    }
+
+    //Classe
     public class Pessoa
     {
         public int Id { get; set; }
