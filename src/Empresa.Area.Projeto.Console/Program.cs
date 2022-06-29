@@ -86,25 +86,39 @@ public class Program
 
     public static void EstruturaRepeticao_While()
     {
-        while (true)
-        {
+        int numero = 0;
 
+        while (numero < 3)
+        {
+            Console.Write(numero);
+            numero++;
         }
     }
 
     public static void EstruturaRepeticao_DoWhile()
     {
+        int numero = 0;
         do
         {
+            Console.Write(numero);
+            numero++;
 
-        } while (true);
+        } while (numero < 5);
     }
 
     public static void EstruturaCondicao_If()
     {
         int valorRetornado = SomarUm(4);
 
-        // Estrutura de condição
+        if (valorRetornado > 5)
+        {
+            Console.WriteLine("Valor retornado maior que 5");
+        }
+    }
+
+    public static void EstruturaCondicao_IfElse()
+    {
+        int valorRetornado = SomarUm(4);
 
         if (valorRetornado > 5)
         {
@@ -118,11 +132,6 @@ public class Program
         {
             //Só vai entrar se a variável for igual a 5
         }
-    }
-
-    public static void EstruturaCondicao_IfElse()
-    {
-
     }
 
     public static void EstruturaCondicao_Switch()
