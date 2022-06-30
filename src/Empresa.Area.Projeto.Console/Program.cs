@@ -10,7 +10,7 @@ public class Program
         Console.WriteLine("Hello, World!");
 
         Built_in_Types();
-        
+
         //Estrutura de dados
         EstruturaDeDados_Pilha();
         EstruturaDeDados_Fila();
@@ -25,6 +25,15 @@ public class Program
         EstruturaCondicao_If();
         EstruturaCondicao_IfElse();
         EstruturaCondicao_Switch();
+
+        //Calcular idade
+        PessoaIdade pessoaIdade = new PessoaIdade();
+        pessoaIdade.Nome = "Felipe";
+        pessoaIdade.DataNascimento = new DateTime(1984, 7, 11);
+
+        int idade = pessoaIdade.CalcularIdade();
+
+        Console.WriteLine(idade);
     }
 
 
@@ -33,6 +42,8 @@ public class Program
     /// </summary>
     public static void Built_in_Types()
     {
+        CreateHeader("Built-in Types");
+
         // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types
 
         short ValorShot = 0;
@@ -63,6 +74,8 @@ public class Program
     /// </summary>
     public static void EstruturaDeDados_Pilha()
     {
+        CreateHeader("Estrutura de dados: Pilha");
+
         // https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.stack-1?view=net-6.0
 
         Stack<Pessoa> pilha = new Stack<Pessoa>();
@@ -73,9 +86,20 @@ public class Program
 
         foreach (var item in pilha)
         {
-            var itemPessoa = pilha.Pop();
-            Console.WriteLine(itemPessoa.Name);
+            Console.WriteLine(item.Name);
         }
+
+        var itemPessoa = pilha.Pop();
+        Console.WriteLine(itemPessoa.Name);
+
+        Stack<Pessoa> pilha2 = new Stack<Pessoa>(pilha.ToArray());
+
+        foreach (var item in pilha2)
+        {
+            Console.WriteLine(item.Name);
+        }
+
+        JumpLine(2);
     }
 
     /// <summary>
@@ -83,6 +107,8 @@ public class Program
     /// </summary>
     public static void EstruturaDeDados_Fila()
     {
+        CreateHeader("Estrutura de dados: Fila");
+
         // https://docs.microsoft.com/en-us/dotnet/api/system.collections.queue?view=net-6.0
         Queue<Pessoa> fila = new Queue<Pessoa>();
 
@@ -92,13 +118,26 @@ public class Program
 
         foreach (var item in fila)
         {
-            var itemPessoa = fila.Dequeue();
-            Console.WriteLine(itemPessoa.Name);
+            Console.WriteLine(item.Name);
         }
+
+        var itemPessoa = fila.Dequeue();
+        Console.WriteLine(itemPessoa.Name);
+
+        Stack<Pessoa> fila2 = new Stack<Pessoa>(fila.ToArray());
+
+        foreach (var item in fila2)
+        {
+            Console.WriteLine(item.Name);
+        }
+
+        JumpLine(2);
     }
 
     public static void EstruturaRepeticao_For()
     {
+        CreateHeader("Estrutura de repetição: For");
+
         var items = ObterArray();
         //var items = ObterLista();
 
@@ -106,10 +145,14 @@ public class Program
         {
             Console.WriteLine(items[0].Name);
         }
+
+        JumpLine(2);
     }
 
     public static void EstruturaRepeticao_Foreach()
     {
+        CreateHeader("Estrutura de repetição: foreach");
+
         var items = ObterArray();
         //var items = ObterLista();
 
@@ -117,10 +160,14 @@ public class Program
         {
             Console.WriteLine(item.Name);
         }
+
+        JumpLine(2);
     }
 
     public static void EstruturaRepeticao_While()
     {
+        CreateHeader("Estrutura de repetição: While");
+
         int numero = 0;
 
         while (numero < 3)
@@ -128,10 +175,14 @@ public class Program
             Console.Write(numero);
             numero++;
         }
+
+        JumpLine(2);
     }
 
     public static void EstruturaRepeticao_DoWhile()
     {
+        CreateHeader("Estrutura de repetição: Do While");
+
         int numero = 0;
         do
         {
@@ -139,20 +190,28 @@ public class Program
             numero++;
 
         } while (numero < 5);
+
+        JumpLine(2);
     }
 
     public static void EstruturaCondicao_If()
     {
+        CreateHeader("Estrutura de condição: if");
+
         int valorRetornado = SomarUm(4);
 
         if (valorRetornado > 5)
         {
             Console.WriteLine("Valor retornado maior que 5");
         }
+
+        JumpLine(2);
     }
 
     public static void EstruturaCondicao_IfElse()
     {
+        CreateHeader("Estrutura de condição: if else");
+
         int valorRetornado = SomarUm(4);
 
         if (valorRetornado > 5)
@@ -167,10 +226,14 @@ public class Program
         {
             //Só vai entrar se a variável for igual a 5
         }
+
+        JumpLine(2);
     }
 
     public static void EstruturaCondicao_Switch()
     {
+        CreateHeader("Estrutura de condição: switch");
+
         int numero = GerarNumeroRandomico(1, 30);
 
         switch (numero)
@@ -192,6 +255,8 @@ public class Program
                 Console.WriteLine("Número esta fora do range esperado");
                 break;
         }
+
+        JumpLine(2);
     }
 
     //Método
@@ -204,6 +269,10 @@ public class Program
     {
         return new Random().Next(min, max);
     }
+
+    public static int GerarNumeroRandomico2(int min, int max) =>
+        new Random().Next(min, max);
+
 
     public static List<Pessoa> ObterLista()
     {
@@ -220,7 +289,7 @@ public class Program
         Pessoa[] Pessoas = new Pessoa[3];
         Pessoas[0] = new Pessoa { Id = 1, Name = "Camila", Active = true };
         Pessoas[1] = new Pessoa { Id = 2, Name = "Paola", Active = true };
-        Pessoas[3] = new Pessoa { Id = 3, Name = "Rafael", Active = true };
+        Pessoas[2] = new Pessoa { Id = 3, Name = "Rafael", Active = true };
 
         return Pessoas;
     }
@@ -233,5 +302,38 @@ public class Program
         public string Name { get; set; }
 
         public bool Active { get; set; }
+    }
+
+    public class PessoaIdade
+    {
+        public string Nome { get; set; }
+        public DateTime DataNascimento { get; set; }
+
+        public int CalcularIdade()
+        {
+            var dataAtual = DateTime.Now;
+            var idade = dataAtual.Year - DataNascimento.Year;
+
+            if (dataAtual < DataNascimento.AddYears(idade))
+                idade--;
+
+            return idade;
+        }
+    }
+
+    public static void CreateHeader(string titulo)
+    {
+        Console.WriteLine("***************");
+        Console.WriteLine($"*** Exemplo de {titulo} ***");
+        Console.WriteLine("***************");
+        Console.WriteLine(Environment.NewLine);
+    }
+
+    public static void JumpLine(int qtd)
+    {
+        for (int i = 0; i < qtd; i++)
+        {
+            Console.WriteLine(Environment.NewLine);
+        }
     }
 }
