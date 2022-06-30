@@ -7,7 +7,7 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        System.Console.WriteLine("Hello, World!");
 
         Built_in_Types();
 
@@ -33,7 +33,7 @@ public class Program
 
         int idade = pessoaIdade.CalcularIdade();
 
-        Console.WriteLine(idade);
+        System.Console.WriteLine(idade);
     }
 
 
@@ -86,17 +86,17 @@ public class Program
 
         foreach (var item in pilha)
         {
-            Console.WriteLine(item.Name);
+            System.Console.WriteLine(item.Name);
         }
 
         var itemPessoa = pilha.Pop();
-        Console.WriteLine(itemPessoa.Name);
+        System.Console.WriteLine(itemPessoa.Name);
 
         Stack<Pessoa> pilha2 = new Stack<Pessoa>(pilha.ToArray());
 
         foreach (var item in pilha2)
         {
-            Console.WriteLine(item.Name);
+            System.Console.WriteLine(item.Name);
         }
 
         JumpLine(2);
@@ -118,17 +118,17 @@ public class Program
 
         foreach (var item in fila)
         {
-            Console.WriteLine(item.Name);
+            System.Console.WriteLine(item.Name);
         }
 
         var itemPessoa = fila.Dequeue();
-        Console.WriteLine(itemPessoa.Name);
+        System.Console.WriteLine(itemPessoa.Name);
 
         Stack<Pessoa> fila2 = new Stack<Pessoa>(fila.ToArray());
 
         foreach (var item in fila2)
         {
-            Console.WriteLine(item.Name);
+            System.Console.WriteLine(item.Name);
         }
 
         JumpLine(2);
@@ -143,7 +143,7 @@ public class Program
 
         for (int i = 0; i < items.Length; i++)
         {
-            Console.WriteLine(items[0].Name);
+            System.Console.WriteLine(items[0].Name);
         }
 
         JumpLine(2);
@@ -158,7 +158,7 @@ public class Program
 
         foreach (var item in items)
         {
-            Console.WriteLine(item.Name);
+            System.Console.WriteLine(item.Name);
         }
 
         JumpLine(2);
@@ -172,7 +172,7 @@ public class Program
 
         while (numero < 3)
         {
-            Console.Write(numero);
+            System.Console.Write(numero);
             numero++;
         }
 
@@ -186,7 +186,7 @@ public class Program
         int numero = 0;
         do
         {
-            Console.Write(numero);
+            System.Console.Write(numero);
             numero++;
 
         } while (numero < 5);
@@ -202,7 +202,7 @@ public class Program
 
         if (valorRetornado > 5)
         {
-            Console.WriteLine("Valor retornado maior que 5");
+            System.Console.WriteLine("Valor retornado maior que 5");
         }
 
         JumpLine(2);
@@ -216,11 +216,11 @@ public class Program
 
         if (valorRetornado > 5)
         {
-            Console.WriteLine("Valor retornado maior que 5");
+            System.Console.WriteLine("Valor retornado maior que 5");
         }
         else if (valorRetornado < 5)
         {
-            Console.WriteLine("Valor retornado menor que 5");
+            System.Console.WriteLine("Valor retornado menor que 5");
         }
         else
         {
@@ -239,20 +239,20 @@ public class Program
         switch (numero)
         {
             case 1:
-                Console.WriteLine("Número é 1");
+                System.Console.WriteLine("Número é 1");
                 break;
 
             case 2:
-                Console.WriteLine("Número é 2");
+                System.Console.WriteLine("Número é 2");
                 break;
 
             case > 2:
             case <= 30:
-                Console.WriteLine("Número esta entre 2 e 30");
+                System.Console.WriteLine("Número esta entre 2 e 30");
                 break;
 
             default:
-                Console.WriteLine("Número esta fora do range esperado");
+                System.Console.WriteLine("Número esta fora do range esperado");
                 break;
         }
 
@@ -323,17 +323,17 @@ public class Program
 
     public static void CreateHeader(string titulo)
     {
-        Console.WriteLine("***************");
-        Console.WriteLine($"*** Exemplo de {titulo} ***");
-        Console.WriteLine("***************");
-        Console.WriteLine(Environment.NewLine);
+        System.Console.WriteLine("***************");
+        System.Console.WriteLine($"*** Exemplo de {titulo} ***");
+        System.Console.WriteLine("***************");
+        System.Console.WriteLine(Environment.NewLine);
     }
 
     public static void JumpLine(int qtd)
     {
         for (int i = 0; i < qtd; i++)
         {
-            Console.WriteLine(Environment.NewLine);
+            System.Console.WriteLine(Environment.NewLine);
         }
     }
 }
